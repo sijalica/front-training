@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card mt-3">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center">Create new appoitment</h2>
+            </div>
+        </div>
+    
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <input class="form-control" [(ngModel)]="newAppoitmentTitle" placeholder="Appoitment title">
+            </div>
+            <div class="col-md-4">
+                <input class="form-control" [(ngModel)]="newAppoitmentDate" type="date" placeholder="Appoitment date">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary w-100" (click)="add()">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-center mt-5">Appoitments</h2>
+
+    <div>
+        <ul class="list-group mt-3">
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let appoitment of appoitments; index as i">
+                {{appoitment.title}} {{appoitment.date | date:'dd.MM.yyyy'}}
+                <button class="btn btn-danger" (click)="delete(i)">Delete</button>
+            </li>
+        </ul>
+    </div>
+</div>
